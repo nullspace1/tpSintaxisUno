@@ -31,16 +31,17 @@ int numeroEvalFunction(Rama* ramaDer, Rama* ramaIzq, int numero){
 char* construirSubstring(int first, int last, char* expresion){
 	if (first >= last) return "";
 
-	char* substring = malloc(sizeof(last - first + 1));
+	char* substring = malloc(last - first + 1);
 
 	int cnt = 0;
 
-	for (int i = first; i < last || expresion[i] == '\0';i++){
+	for (int i = first; i < last && expresion[i] != '\0';i++){
 		cnt++;
 		substring[i - first] = expresion[i];
 	}
 
 	substring[cnt+1] = '\0';
+
 	return substring;
 }
 
@@ -65,6 +66,7 @@ Rama* ramaVerificada(Rama* rama){
 
 Rama* construirRama(char* expresion){
 	Rama* rama = malloc(sizeof(Rama));
+
 
 	if(strcmp(expresion,"") == 0) return NULL;
 
@@ -97,7 +99,7 @@ Rama* construirRama(char* expresion){
 	int numero = getNumero(expresion);
 
 	if(numero == -1){
-		printf("Error parseando numero!\n");
+		printf("Error parseando numero\n");
 		return NULL;
 	}
 
