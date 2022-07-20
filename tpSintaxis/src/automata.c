@@ -76,3 +76,5 @@ int parsearString(Automata automata, char* string){
 	return parsearStringConSideEffect(automata,string,id,NULL);
 }
 
+
+

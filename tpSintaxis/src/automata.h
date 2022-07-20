@@ -1,3 +1,5 @@
+#pragma once
+
 typedef struct Array{
 	void* vals;
 	int size;
